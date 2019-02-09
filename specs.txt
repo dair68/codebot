@@ -1,0 +1,40 @@
+Specs
+ -simple React-based front-end for displaying navbar/game canvas
+ -express server to handle routing
+ -MongoDB database
+	-ideally to store data for user-made levels 
+	-possibly store log-in data
+	-worse-case scenario, will store something silly like robot customization
+ -Phaser library to make game
+
+Premise
+ -A robot puzzle game where a user commands a robot to accomplish tasks
+  based on program-esque command chains. The robot language is called
+  ITCH (Information Technology Command Handling). Initial levels will have
+  the user getting used to moving the robot around and learning all the interactive
+  objects, but later levels will contain algorithmic/math tasks.
+
+Agile Workflow
+ -essentially Agile is a work philosophy intended to make production efficient via
+  frequent, snappy meetings (stand-ups) and smart allocation of man-power to the most
+  inportant tasks (expressed by a fibonacci number to show difficulty)
+
+ -Epics: large scale problems. Things like front-end or debugging
+ -Issues: smaller, concrete problems that comprise the epics. Things like setting up
+	  a database model or making a page responsive
+ -Sprints: specified time frames in which members attempt to accomplish a certain milestone,
+	  like final debugging
+ -Pull Requests: To merge a change to master, first a user pushes changes to their branch and
+		then they make a PR. Someone else checks their code and then the code is merged
+		with master. This ensures quality control/resolving merge issues to protect
+		the master branch
+ -Branches: repositories dedicated to implementing various issues. Each issue should have
+	   its own branch
+ -PM board: on Zenhub, everyone should be creating issues and moving them to the appropriate
+	   columns to ensure progress is easily monitered
+
+Research
+ -Grant: technologies needed/overall game setup
+
+Group Members:
+ Grant Huang 
