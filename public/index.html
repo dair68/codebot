@@ -21,16 +21,24 @@
             },
             scene: {
                 preload: preload,
-                create: create
+                create: create,
+                update: update
             }
         };
 
-        var game = new Phaser.Game(config);
+        let game = new Phaser.Game(config);
 
         function preload() {
             this.load.image("tiles", "assets/images/backgrounds/future_tiles.png");
             this.load.tilemapTiledJSON("map", "assets/map.json");
+            this.load.spritesheet('robot',
+                'assets/images/sprites/daxbotsheet.png',
+                { frameWidth: 64, frameHeight: 68 }
+            );
         }
+
+        let player;
+        let cursors;
 
         function create() {
             const map = this.make.tilemap({ key: "map" });
@@ -53,6 +61,36 @@
             //     faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
             // });
 
+            player = this.physics.add.sprite(160, 256, "robot").setSize(30, 55).setOffset(10, 0)       ;
+            player.setDisplaySize(48, 51);
+
+            // This will watch the player and worldLayer every frame to check for collisions
+            this.physics.add.collider(player, topLayer);
+
+            //  Input Events
+            cursors = this.input.keyboard.createCursorKeys();
+        }
+
+        function update() {
+            // Stop any previous movement from the last frame
+            player.body.setVelocity(0);
+
+            // Horizontal movement
+            if (cursors.left.isDown) {
+                player.body.setVelocityX(-100);
+            } else if (cursors.right.isDown) {
+                player.body.setVelocityX(100);
+            }
+
+            // Vertical movement
+            if (cursors.up.isDown) {
+                player.body.setVelocityY(-100);
+            } else if (cursors.down.isDown) {
+                player.body.setVelocityY(100);
+            }
+
+            // Normalize and scale the velocity so that player can't move faster along a diagonal
+            // player.body.velocity.normalize().scale(speed);
         }
     </script>
 
