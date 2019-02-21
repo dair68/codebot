@@ -1,7 +1,7 @@
 const config = {
     type: Phaser.CANVAS,
-    width: 600,
-    height: 400,
+    width: 720,
+    height: 480,
     parent: "gameContainer",
     physics: {
         default: 'arcade',
@@ -21,27 +21,30 @@ let scaleRatio = window.devicePixelRatio / 3;
 
 function preload() {
     //blocky dungeon
-    this.load.image("tiles", "assets/tilesets/dungeon_sheet.png");
-    this.load.tilemapTiledJSON("map", "assets/tilemaps/dungeonMap.json");
+    // this.load.image("tiles", "assets/tilesets/dungeon_sheet.png");
+    // this.load.tilemapTiledJSON("map", "assets/tilemaps/dungeonMap.json");
+
+    this.load.image("tiles", "assets/tilesets/dungeon_48x48.png");
+    this.load.tilemapTiledJSON("map", "assets/tilemaps/small_map.json");
 
     //robot sprites
     this.load.spritesheet('robot',
-        'assets/sprites/knightanim4.png',
-        { frameWidth: 32, frameHeight: 32 }
+        'assets/sprites/knight_96x96.png',
+        { frameWidth: 96, frameHeight: 96 }
     );
 }
 
 let player;
 let cursors;
-const scale = 40 / 16;
+const scale = 16 / 16;
 
 function create() {
     const map = this.make.tilemap({ key: "map" });
 
     // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in
     // Phaser's cache (i.e. the name you used in preload)
-    //const tileset = map.addTilesetImage("future", "tiles");
-    const tileset = map.addTilesetImage("blocky_dungeon", "tiles");
+    //const tileset = map.addTilesetImage("blocky_dungeon", "tiles");
+    const tileset = map.addTilesetImage("smallmap_tiles", "tiles");
 
     // Parameters: layer name (or index) from Tiled, tileset, x, y
     // const belowLayer = map.createStaticLayer("floor", tileset, 0, 0);
@@ -66,8 +69,8 @@ function create() {
     //creating player character
     const spawnPoint = map.findObject("Objects", obj => obj.name === "Spawn Point");
     player = this.physics.add.sprite(spawnPoint.x * scale, spawnPoint.y * scale, "robot");
-    player.setSize(10, 10).setOffset(11, 13);
-    player.setDisplaySize(40 * scale, 40 * scale);
+    player.setSize(34, 40).setOffset(30, 30);
+    //player.setDisplaySize(40 * scale, 40 * scale);
 
     // This will watch the player and worldLayer every frame to check for collisions
     this.physics.add.collider(player, topLayer);
