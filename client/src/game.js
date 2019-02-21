@@ -4,7 +4,10 @@ class Game extends Component {
     componentDidMount() {
         const script = document.createElement("script");
 
-        script.src = "./logic/game.js";
+        //script.src = "./logic/game.js";
+
+        script.src = "./logic/index.js";
+        script.type = "module";
         script.async = true;
 
         document.getElementById("gameContainer").appendChild(script);
