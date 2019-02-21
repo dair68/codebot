@@ -26,7 +26,7 @@ function preload() {
     //blocky dungeon
     this.load.image("tiles", "assets/images/dungeon_sheet.png");
     this.load.tilemapTiledJSON("map", "assets/dungeonMap.json");
- 
+
     // this.load.spritesheet('robot',
     //     'assets/images/sprites/daxbotsheet.png',
     //     { frameWidth: 64, frameHeight: 68 }
@@ -40,6 +40,7 @@ function preload() {
 
 let player;
 let cursors;
+const scale = 40 / 16;
 
 function create() {
     const map = this.make.tilemap({ key: "map" });
@@ -58,8 +59,8 @@ function create() {
 
     topLayer.setCollisionByProperty({ collides: true });
 
-    belowLayer.setDisplaySize(400, 400);
-    topLayer.setDisplaySize(400, 400);
+    belowLayer.setDisplaySize(belowLayer.width * scale, belowLayer.height * scale);
+    topLayer.setDisplaySize(topLayer.width * scale, topLayer.height * scale);
 
     //checking which tiles have collision detection
     // const debugGraphics = this.add.graphics().setAlpha(0.75);
@@ -69,9 +70,11 @@ function create() {
     //     faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
     // });
 
-    player = this.physics.add.sprite(160, 256, "robot").setSize(10,15).setOffset(11,8);
-    //player = this.physics.add.sprite(160, 256, "robot").setSize(20, 15).setOffset(20, 40);;
-    player.setDisplaySize(40 * 40/20, 40 * 40/20);
+    //creating player character
+    const spawnPoint = map.findObject("Objects", obj => obj.name === "Spawn Point");
+    player = this.physics.add.sprite(spawnPoint.x * scale, spawnPoint.y * scale, "robot");
+    player.setSize(10, 10).setOffset(11, 13);
+    player.setDisplaySize(40 * scale, 40 * scale);
 
     // This will watch the player and worldLayer every frame to check for collisions
     this.physics.add.collider(player, topLayer);
@@ -120,50 +123,50 @@ function create() {
 }
 
 function update() {
+    const speed = 100;
+    const prevVelocity = player.body.velocity.clone();
 
+    // Stop any previous movement from the last frame
+    player.body.setVelocity(0);
 
     // Horizontal movement
     if (cursors.left.isDown) {
-        player.body.setVelocityX(-100);
+        player.body.setVelocityX(-speed);
         player.body.setVelocityY(0);
-
-        //flipping sprite left
-        // if (!player.flipX) {
-        //     player.flipX = true;
-        // }
-
         player.anims.play("left", true);
     }
     else if (cursors.right.isDown) {
-        player.body.setVelocityX(100);
+        player.body.setVelocityX(speed);
         player.body.setVelocityY(0);
-
-        //flipping sprite right
-        // if (player.flipX) {
-        //     player.flipX = false;
-        // }
-
         player.anims.play('right', true);
     }
-
     // Vertical movement
     else if (cursors.up.isDown) {
-        player.body.setVelocityY(-100);
+        player.body.setVelocityY(-speed);
         player.body.setVelocityX(0);
         player.anims.play("up", true);
     }
     else if (cursors.down.isDown) {
-        player.body.setVelocityY(100);
+        player.body.setVelocityY(speed);
         player.body.setVelocityX(0);
         player.anims.play("down", true);
     }
-
+    //idle sprite
     else {
-        // Stop any previous movement from the last frame
-        player.body.setVelocity(0);
-        player.anims.play("idle", true);
-    }
+        player.anims.stop();
 
-    // Normalize and scale the velocity so that player can't move faster along a diagonal
-    // player.body.velocity.normalize().scale(speed);
+        //selecting idle frame based on previous movement
+        if (prevVelocity.x < 0) {
+            player.setTexture("robot", 24);
+        }
+        else if (prevVelocity.x > 0) {
+            player.setTexture("robot", 8);
+        }
+        else if (prevVelocity.y < 0) {
+            player.setTexture("robot", 0);
+        }
+        else if (prevVelocity.y > 0) {
+            player.setTexture("robot", 16);
+        }
+    }
 }
