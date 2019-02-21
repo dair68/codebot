@@ -1,29 +1,29 @@
-{ "height":10,
+{ "height":9,
  "infinite":false,
  "layers":[
         {
-         "data":"1AAAANQAAADUAAAA1AAAANQAAADUAAAA1AAAANQAAADUAAAAAAAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAAAAAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAAAAAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAAAAAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAAAAAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAAAAAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAAAAAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAAAAAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+         "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAA",
          "encoding":"base64",
-         "height":10,
-         "id":19,
+         "height":9,
+         "id":22,
          "name":"below",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":10,
+         "width":9,
          "x":0,
          "y":0
         }, 
         {
-         "data":"BgAAAAcAAAAHAAAAwQAAAMIAAADDAAAABwAAAAcAAAAIAAAAAAAAAB4AAAAfAAAAHwAAANkAAADaAAAA2wAAAB8AAAAfAAAAIAAAAAAAAAA2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAAAAAAANgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAA2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAAAAAAANgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAAAAAAABOAAAATwAAAE8AAABPAAAATwAAAE8AAABPAAAATwAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+         "data":"BgAAAAcAAAAHAAAAwQAAAMIAAADDAAAABwAAAAcAAAAIAAAAHgAAAB8AAAAfAAAA2QAAANoAAADbAAAAHwAAAB8AAAAgAAAANgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAANgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAANgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAANgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAANgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAANgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAATgAAAE8AAABPAAAATwAAAE8AAABPAAAATwAAAE8AAABQAAAA",
          "encoding":"base64",
-         "height":10,
-         "id":20,
+         "height":9,
+         "id":23,
          "name":"above",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":10,
+         "width":9,
          "x":0,
          "y":0
         }, 
@@ -50,7 +50,7 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":22,
+ "nextlayerid":24,
  "nextobjectid":3,
  "orientation":"orthogonal",
  "renderorder":"right-down",
@@ -60,7 +60,7 @@
         {
          "columns":24,
          "firstgid":1,
-         "image":"images\/dungeon_sheet.png",
+         "image":"..\/tilesets\/dungeon_sheet.png",
          "imageheight":160,
          "imagewidth":384,
          "margin":0,
@@ -341,28 +341,6 @@
                 }, 
                 {
                  "id":30,
-                 "objectgroup":
-                    {
-                     "draworder":"index",
-                     "name":"",
-                     "objects":[
-                            {
-                             "height":0,
-                             "id":2,
-                             "name":"",
-                             "rotation":0,
-                             "type":"",
-                             "visible":true,
-                             "width":0,
-                             "x":8,
-                             "y":3.81818181818182
-                            }],
-                     "opacity":1,
-                     "type":"objectgroup",
-                     "visible":true,
-                     "x":0,
-                     "y":0
-                    },
                  "properties":[
                         {
                          "name":"collides",
@@ -745,7 +723,7 @@
                         {
                          "name":"collides",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -754,7 +732,7 @@
                         {
                          "name":"collides",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -961,7 +939,7 @@
                         {
                          "name":"collides",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -970,7 +948,7 @@
                         {
                          "name":"collides",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -2256,5 +2234,5 @@
  "tilewidth":16,
  "type":"map",
  "version":1.2,
- "width":10
+ "width":9
 }

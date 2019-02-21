@@ -20,20 +20,13 @@ const game = new Phaser.Game(config);
 let scaleRatio = window.devicePixelRatio / 3;
 
 function preload() {
-    // this.load.image("tiles", "assets/images/backgrounds/future_tiles.png");
-    // this.load.tilemapTiledJSON("map", "assets/map.json");
-
     //blocky dungeon
-    this.load.image("tiles", "assets/images/dungeon_sheet.png");
-    this.load.tilemapTiledJSON("map", "assets/dungeonMap.json");
+    this.load.image("tiles", "assets/tilesets/dungeon_sheet.png");
+    this.load.tilemapTiledJSON("map", "assets/tilemaps/dungeonMap.json");
 
-    // this.load.spritesheet('robot',
-    //     'assets/images/sprites/daxbotsheet.png',
-    //     { frameWidth: 64, frameHeight: 68 }
-    // );
-
+    //robot sprites
     this.load.spritesheet('robot',
-        'assets/images/knightanim4.png',
+        'assets/sprites/knightanim4.png',
         { frameWidth: 32, frameHeight: 32 }
     );
 }
