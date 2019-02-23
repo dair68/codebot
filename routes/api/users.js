@@ -13,6 +13,7 @@ const validateLoginInput = require("../../validation/login");
 
 // Load User model
 const User = require("../../models/User");
+const keys = require("../../config/keys");
 
 // @route POST api/users/register
 // @desc Register user
