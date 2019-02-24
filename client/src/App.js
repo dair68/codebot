@@ -7,18 +7,23 @@ import Game from "./game/Game";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
 
+//import { Provider } from "react-redux";
+//import store from "./store";
+
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div>
-          <Nav></Nav>
-          <Route exact path="/" component={Game} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          <Footer></Footer>
-        </div>
-      </Router>
+     // <Provider store={store}>
+        <Router>
+          <div>
+            <Nav></Nav>
+            <Route exact path="/" component={Game} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Footer></Footer>
+          </div>
+        </Router>
+     // </Provider>
     )
   }
 }
