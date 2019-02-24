@@ -13,11 +13,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // DB Config
-const db = require("./config/keys").mongoURI;
+//const db = require("./config/keys").mongoURI;
 
 // Connecting to the Mongo DB
 mongoose.connect(
-    db,
+    "mongodb://heroku_k567fdgb:ihumqk5olsjgkoh6on8lhcfpu5@ds149365.mlab.com:49365/heroku_k567fdgb",
     { useNewUrlParser: true }
 )
     .then(() => console.log("MongoDB successfully connected"))
