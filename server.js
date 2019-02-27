@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const passport = require("passport");
 
-const users = require("./routes/api/users");
+const routes = require("./routes");
 
 const app = express();
 
@@ -12,12 +12,19 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+}
+// Add routes, both API and view
+app.use(routes);
+
 // DB Config
-//const db = require("./config/keys").mongoURI;
+const db = require("./config/keys").mongoURI;
 
 // Connecting to the Mongo DB
 mongoose.connect(
-    "mongodb://heroku_k567fdgb:ihumqk5olsjgkoh6on8lhcfpu5@ds149365.mlab.com:49365/heroku_k567fdgb",
+    process.env.MONGODB_URI || db,
     { useNewUrlParser: true }
 )
     .then(() => console.log("MongoDB successfully connected"))
@@ -29,7 +36,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 // Routes
-app.use("/api/users", users);
+//app.use("/api/users", users);
 //app.get("/", (req, res) => res.send("Hello World"));
 
 const PORT = process.env.PORT || 5000;
