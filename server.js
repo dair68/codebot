@@ -8,7 +8,7 @@ const routes = require("./routes");
 const app = express();
 
 //bodyparser middleware
-// app.use(express.static("public"));
+app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -35,15 +35,6 @@ app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
 
-// Routes
-//app.use("/api/users", users);
-//app.get("/", (req, res) => res.send("Hello World"));
-
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log("App listening on port " + PORT));
 
- // "scripts": {
-  //   "test": "echo \"Error: no test specified\" && exit 1",
-  //   "start": "concurrently \"node server.js\" \"cd client && npm start\"",
-  //   "server": "nodemon server.js"
-  // },
